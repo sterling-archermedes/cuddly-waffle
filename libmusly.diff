@@ -1,0 +1,17 @@
+diff -r musly/libmusly/decoders/libav_0_8.cpp musly-build/libmusly/decoders/libav_0_8.cpp
+145c145
+<     AVFrame* frame = avcodec_alloc_frame();
+---
+>     AVFrame* frame = av_frame_alloc();
+180c180
+<                 avcodec_get_frame_defaults(frame);
+---
+>                 av_frame_unref(frame);
+diff -r musly/libmusly/gaussianstatistics.cpp musly-build/libmusly/gaussianstatistics.cpp
+12c12
+< #include <cmath>
+---
+> #include "math.h"
+diff -r musly/libmusly/mutualproximity.cpp musly-build/libmusly/mutualproximity.cpp
+12a13
+> #include "math.h"
